@@ -1,0 +1,60 @@
+{% extends 'core/base.html' %}  
+
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+
+{% block headers %}
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+<li><a href="{% url 'rescatados' %}">Rescatados</a></li>
+<li><a href="{% url 'services' %}">Servicios</a></li>
+<li class="active"><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'visit' %}">Visítanos</a></li>
+<li><a href="{% url 'contact' %}">Contáctanos</a></li>
+{% endblock %}
+
+{% block imagen_contenido %}
+    <li style="background-image: url('{% static 'core/img/catnote.jpg' %}');">
+    {% endblock %}
+
+{% block texto1 %}
+    <h1 class="probootstrap-heading probootstrap-animate mb20">Infórmate de lo más actual en esta sección</h1>
+    {% endblock %}
+
+{% block overlay %}
+    {% endblock %}
+
+    {% block texto3 %}
+    {% endblock %}
+
+{% block texto4 %}
+  {% for post in posts %}
+  <section class="probootstrap-half">
+        <div class="image-wrap">
+          <!--Imagen-->
+          <div class="image" style="background-image: url('{{post.image.url}}');"></div>
+        </div>
+        <div class="text">
+          <!--Título-->
+          <h3 class="mt0 mb40">{{post.title}}</h3>
+          <!--Contenido-->
+          <p>{{post.content|safe}}</p>
+          <p class="mb-0 mbt">
+            <!--Autor-->
+            <span class="section-heading-under">Publicado por <em><b>{{post.author}}</b></em> en 
+              <em>
+                <!--Categoría-->
+                {% for category in post.categories.all %}
+                  <a href="{% url 'category' category.id %}" class="link">{{category.name}}</a>{%if not forloop.last %},{% endif %}
+                {% endfor %}
+              </em>
+            </span>
+          </p>
+          <!--Fecha de publicación-->
+          <p>{{post.published|date:"SHORT_DATE_FORMAT"}}</p>
+        </div>
+      </section>
+      </div>
+  {% endfor %}    
+{% endblock %}

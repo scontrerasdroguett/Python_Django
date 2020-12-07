@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}Sobre nosotros{% endblock %}
+
+{% block headers %}
+<li><a href="{% url 'home' %}">Home</a></li>
+<li class="active"><a href="{% url 'about' %}">Sobre nosotros</a></li>
+<li><a href="{% url 'rescatados' %}">Rescatados</a></li>
+<li><a href="{% url 'services' %}">Servicios</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'visit' %}">Visítanos</a></li>
+<li><a href="{% url 'contact' %}">Contáctanos</a></li>
+
+{% endblock %}
+
+{% block imagen_contenido %}
+{% load static %}
+<li style="background-image: url('{% static 'core/img/kitto.jpg' %}');">
+{% endblock %}
+
+{% block texto1 %}
+<h1 class="probootstrap-heading probootstrap-animate mb20">Conoce a Adopta.me</h1>
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block texto3 %}
+{% endblock %}
+
+{% block texto4 %}
+<section class="probootstrap-half reverse">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{% static 'core/img/slider_4.jpg' %}');"></div>
+      </div>
+      <div class="text">
+        <p class="mb10 subtitle">Sobre nosotros</p>
+        <h3 class="mt0 mb40">Conoce al equipo</h3>
+        <p>Tres personas son las que conformaron los cimientos de Adopta.me, donde el amor por los animales desamparados que los unía les dio las fuerzas para comenzar su propia fundación de rescate y rehabilitación animal.</p>
+        <p class="mb50">Han pasado 10 meses desde que comenzamos y ahora contamos con más miembros en nuestro equipo, patrocinadores que nos ayudan con el alimento, madrinas que cumplen el importante rol de ser hogar temporal, voluntarios que nos ayudan con las rutas diarias de alimentación por Santiago, entre otros.</p>
+        <p class="mb50">Lo que buscamos es un objetivo en común, mayor conciencia en la ciudadanía sobre tenencia responsable, sin embargo hasta que eso ocurra podemos decir que aún nos queda mucho por delante, ya que todos los días hay un animal que rescatar.</p>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="probootstrap-block-image text-center">
+              <figure><img src="{% static 'core/img/nekitu.jpg' %}"  alt="Persona_1"></figure>
+              <h4>Álex Olavarría</h4>
+              <p>23 años</p>
+              <p>Estudiante</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="probootstrap-block-image text-center">
+              <figure><img src="{% static 'core/img/kittyconito.jpg' %}"  alt="Persona_2"></figure>
+              <h4>Constanza Baquedano</h4>
+              <p>24 años</p>
+              <p>Estudiante</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="probootstrap-block-image text-center">
+              <figure><img src="{% static 'core/img/ñaño1.jpg' %}" alt="Persona_3"></figure>
+              <h4>Scarlett Contreras</h4>
+              <p>22 años</p>
+              <p>Estudiante</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <section class="probootstrap-half">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{% static 'core/img/slider_2.jpg' %}');"></div>
+      </div>
+    </div>
+{% endblock %}

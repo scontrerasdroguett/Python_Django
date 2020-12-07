@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}Visítanos{% endblock %}
+
+{% block headers %}
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+<li><a href="{% url 'rescatados' %}">Rescatados</a></li>
+<li><a href="{% url 'services' %}">Servicios</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li class="active"><a href="{% url 'visit' %}">Visítanos</a></li>
+<li><a href="{% url 'contact' %}">Contáctanos</a></li>
+
+{% endblock %}
+
+{% block imagen_contenido %}
+{% load static %}
+<li style="background-image: url('{% static 'core/img/doggreen.jpg' %}');">
+{% endblock %}
+
+{% block texto1 %}
+<h1 class="probootstrap-heading probootstrap-animate mb20">¿Deseas hacernos una visita?</h1>
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block texto3 %}
+{% endblock %}
+
+{% block texto4 %}
+<section class="probootstrap-half reverse">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{% static 'core/img/slider_4.jpg' %}');"></div>
+      </div>
+      <div class="text">
+        <p class="mb10 subtitle">Tienda Adopta.me</p>
+        <h3 class="mt0 mb40">Ven a visitarnos</h3>
+        <h4 class="mt0 mb40">Calle Augusto Villarico #442 Ñuñoa, Santiago.</h4>
+        <p >Es importante señalar que no damos la dirección del refugio por temas de seguridad.</p>
+        <h4 class="mt0 mb40">Horario de atención:</h4>
+        <h4 class="mt0 mb40">Lunes a sábado de 10:30 a 20:00.</h4>
+      </div>
+    </section>
+
+     <section class="probootstrap-half">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{% static 'core/img/slider_2.jpg' %}');"></div>
+      </div>
+    </div>
+{% endblock %}

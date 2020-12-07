@@ -1,0 +1,86 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}Contacto{% endblock %}
+
+{% block headers %}
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+<li><a href="{% url 'rescatados' %}">Rescatados</a></li>
+<li><a href="{% url 'services' %}">Servicios</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'visit' %}">Visítanos</a></li>
+<li class="active"><a href="{% url 'contact' %}">Contáctanos</a></li>
+{% endblock %}
+
+{% block imagen_contenido %}
+{% load static %}
+<li style="background-image: url('{% static 'core/img/bizco.jpg' %}');">
+{% endblock %}
+
+{% block texto1 %}
+<h1 class="probootstrap-heading probootstrap-animate mb20">Contáctanos</h1>
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block texto3 %}
+    <section class="probootstrap-section probootstrap-bg-white">
+      <div class="container-fluid">
+        <div class="section-heading text-center">
+          <h2 class="mt0 mb0">Envíanos un mensaje y te responderemos en breve</h2>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+
+{% block texto4 %}
+<section class="probootstrap-half">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{% static 'core/img/slider_8.jpg' %}');"></div>
+      </div>
+      
+      <div class="text">
+        <form action="" method="POST" class="probootstrap-form mb60">
+          {% if 'OK' in request.GET %}
+            <p class="text-success"><strong>Su mensaje se ha enviado correctamente</strong></p>
+          {% endif %}
+          {% if 'FAIL' in request.GET %}
+            <p class="text-success"><strong>Se ha generado un error desconocido, intente nuevamente</strong></p>
+          {% endif %}
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="fname">Nombre</label>
+                {{form.name}}
+                {{form.name.errors}}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="lname">Apellido</label>
+                {{form.lastname}}
+                {{form.lastname.errors}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            {{form.email}}
+            {{form.email.errors}}
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            {{form.content}}
+            {{form.content.errors}}
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Enviar mensaje">
+          </div>
+        </form>
+      </div>
+    </section>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}Adopta.me{% endblock %}
+
+{% block headers %}
+<li class="active"><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+<li><a href="{% url 'rescatados' %}">Rescatados</a></li>
+<li><a href="{% url 'services' %}">Servicios</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'visit' %}">Visítanos</a></li>
+<li><a href="{% url 'contact' %}">Contáctanos</a></li>
+{% endblock %}
+
+{% block imagen_contenido %}
+{% load static %}
+<li style="background-image: url('{% static 'core/img/black_doggo.jpg' %}');">
+{% endblock %}
+
+{% block texto1 %}
+<h1 class="probootstrap-heading probootstrap-animate mb20">Somos Adopta.me</h1>
+<div class="probootstrap-animate probootstrap-sub-wrap mb30">Un refugio creado para dar segundas oportunidades</div>
+{% endblock %}
+
+{% block overlay %}
+<li style="background-image: url('{% static 'core/img/kitty.jpg' %}');">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="probootstrap-slider-text text-center">
+              <h1 class="probootstrap-heading probootstrap-animate mb20">¡Ya hemos dado en adopción más de 200 mascotas!</h1>
+                <div class="probootstrap-animate probootstrap-sub-wrap mb30">Tu ayuda nos permite seguir creciendo </div>
+                <p class="probootstrap-animate"><a href="#" class="btn btn-ghost btn-ghost-white">Dona aquí</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+{% endblock %}
+
+{% block texto3 %}
+<section class="probootstrap-section probootstrap-bg-white">
+      <div class="container-fluid">
+        <div class="section-heading text-center">
+          <h2 class="mt0 mb0">¡Dale una oportunidad a una mascota sin hogar!</h2>
+        </div>
+      </div>
+    </section>
+{% endblock %}
+
+{% block texto4 %}
+{% endblock %}
