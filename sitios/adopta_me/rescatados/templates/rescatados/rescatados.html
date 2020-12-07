@@ -27,7 +27,22 @@
 {% block texto3 %}
 {% endblock %}
 
+
+
 {% block texto4 %}
+{% for rescatado in rescatados %}
+  <section class="probootstrap-half">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{{rescatado.image.url}}');"></div>
+      </div>
+      <div class="text">
+        <h3 class="mt0 mb40">{{rescatado.name}}</h3>
+        <p>{{rescatado.info|safe}}</p>
+        <p class="mb50">{{rescatado.description|safe}}</p>
+        <p><a href="contact.html" class="btn btn-ghost btn-ghost-white mb10">Agenda una cita para conocerlo</a></p>
+      </div>
+    </section>
+{% endfor %}
 <section class="probootstrap-half">
       <div class="image-wrap">
         <div class="image" style="background-image: url('{% static 'core/img/kuro.jpg' %}');"></div>
