@@ -18,10 +18,5 @@ def home(request):
 def about(request):
     return render(request, "core/about.html")
 
-
-def rescatados(request):
-    return render(request, "core/rescatados.html")
-
-
 def visit(request):
     return render(request, "core/visit.html")
