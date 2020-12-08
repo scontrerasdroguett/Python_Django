@@ -30,18 +30,46 @@
 
 
 {% block texto4 %}
-{% for rescatado in rescatados %}
-  <section class="probootstrap-half">
-      <div class="image-wrap">
-        <div class="image" style="background-image: url('{{rescatado.image.url}}');"></div>
-      </div>
-      <div class="text">
-        <h3 class="mt0 mb40">{{rescatado.name}}</h3>
-        <p>{{rescatado.info|safe}}</p>
-        <p class="mb50">{{rescatado.description|safe}}</p>
-        <p><a href="contact.html" class="btn btn-ghost btn-ghost-white mb10">Agenda una cita para conocerlo</a></p>
-      </div>
-    </section>
-{% endfor %}
+  {% for rescatado in rescatados %}
+    <section class="probootstrap-half">
+        <div class="image-wrap">
+          <div class="image" style="background-image: url('{{rescatado.image.url}}');"></div>
+        </div>
+        <div class="text">
+          <h3 class="mt0 mb40">{{rescatado.name}}</h3>
+          <p>{{rescatado.info|safe}}</p>
+          <p class="mb50">{{rescatado.description|safe}}</p>
+          <p><a href="contact.html" class="btn btn-ghost btn-ghost-white mb10">Agenda una cita para conocerlo</a></p>
+        </div>
+      </section>
+  {% endfor %}
+    <div class="row text-center text-secondary mt-4 mb-4">
+      {% if rescatados.has_other_pages %}
+        <nav aria-label="Paginación rescatados">
+          <ul class="pagination">
+            {% if rescatados.has_previous %}
+              <li class="page-item"><a class="page-link" href="?page={{rescatados.previous_page_number}}">&laquo;</a></li>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+            {% endif %}
+
+            {% for i in rescatados.paginator.page_range %}
+              {% if rescatados.number == i %}
+                <li class="page-item active"><span class="page-link">{{i}} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{i}}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if rescatados.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{rescatados.next_page_number}}">&raquo;</a></li>
+            {% else %}
+              <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+            {% endif %}
+          </ul>
+        </nav>
+      {% endif %}
     </div>
+      </div>
+      
 {% endblock %}
