@@ -29,18 +29,15 @@
     {% endblock %}
 
 {% block texto4 %}
-  {% for post in category.get_posts.all %}
-      <section class="probootstrap-half">
-        <div class="image-wrap">
-          <!--Imagen-->
-          <div class="image" style="background-image: url('{{post.image.url}}');"></div>
-        </div>
-        <div class="text">
-          <!--Título-->
-          <h3 class="mt0 mb40">{{post.title}}</h3>
-          <!--Contenido-->
-          <p>{{post.content|safe}}</p>
-          <p class="mb-0 mbt">
+{% for post in category.get_posts.all %}
+  <section class="probootstrap-half">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{{post.image.url}}');"></div>
+      </div>
+      <div class="text">
+        <h3 class="mt0 mb40">{{post.title}}</h3>
+        <p>{{post.content|safe}}</p>
+        <p class="mb-0 mbt">
             <!--Autor-->
             <span class="section-heading-under">Publicado por <em><b>{{post.author}}</b></em> en 
               <em>
@@ -51,10 +48,9 @@
               </em>
             </span>
           </p>
-          <!--Fecha de publicación-->
-          <p>{{post.published|date:"SHORT_DATE_FORMAT"}}</p>
-        </div>
-      </section>
+        <p>{{post.published|date:"SHORT_DATE_FORMAT"}}</p>
       </div>
-  {% endfor %}    
+    </section>
+{% endfor %}
+    </div>
 {% endblock %}

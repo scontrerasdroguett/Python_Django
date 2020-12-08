@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %} 
+
+{% block title %}Rescatados{% endblock %}
+
+{% block headers %}
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+<li class="active"><a href="{% url 'rescatados' %}">Rescatados</a></li>
+<li><a href="{% url 'services' %}">Servicios</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'visit' %}">Visítanos</a></li>
+<li><a href="{% url 'contact' %}">Contáctanos</a></li>
+{% endblock %}
+
+{% block imagen_contenido %}
+{% load static %}
+<li style="background-image: url('{% static 'core/img/whitecat.jpg' %}');">
+{% endblock %}
+
+{% block texto1 %}
+<h1 class="probootstrap-heading probootstrap-animate mb20">Conoce a nuestros rescatados</h1>
+{% endblock %}
+
+{% block overlay %}
+{% endblock %}
+
+{% block texto3 %}
+{% endblock %}
+
+
+
+{% block texto4 %}
+{% for rescatado in rescatados %}
+  <section class="probootstrap-half">
+      <div class="image-wrap">
+        <div class="image" style="background-image: url('{{rescatado.image.url}}');"></div>
+      </div>
+      <div class="text">
+        <h3 class="mt0 mb40">{{rescatado.name}}</h3>
+        <p>{{rescatado.info|safe}}</p>
+        <p class="mb50">{{rescatado.description|safe}}</p>
+        <p><a href="contact.html" class="btn btn-ghost btn-ghost-white mb10">Agenda una cita para conocerlo</a></p>
+      </div>
+    </section>
+{% endfor %}
+    </div>
+{% endblock %}
