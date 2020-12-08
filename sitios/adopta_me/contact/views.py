@@ -19,11 +19,12 @@ def contact(request):
             #Correo que se enviará
             email= EmailMessage(
                 "Adopta.me. nuevo mensaje",
-                "De {} <{}>\n\nEscribió:\n\n{}".format(name,lastname,email,content),
+                "De {} <{}>\n\nEscribió:\n\n{}".format(name,email,content),
                 "no-contestar@inbox.mailtrap.io",
                 ["sca.contreras@alumnos.duoc.cl"],
                 reply_to = [email]
             )
+
             try:
                 email.send()
                 return redirect(reverse('contact') + "?OK")
