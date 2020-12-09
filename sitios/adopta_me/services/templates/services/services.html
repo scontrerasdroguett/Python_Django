@@ -5,33 +5,32 @@
 
 {% block headers %}
 
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">Sobre nosotros</a></li>
-    <li><a href="{% url 'rescatados' %}">Rescatados</a></li>
-    <li class="active"><a href="{% url 'services' %}">Servicios</a></li>
-    <li><a href="{% url 'blog' %}">Blog</a></li>
-    <li><a href="{% url 'visit' %}">Visítanos</a></li>
-    <li><a href="{% url 'contact' %}">Contáctanos</a></li>
-    {% endblock %}
+  <li><a href="{% url 'home' %}">Home</a></li>
+  <li><a href="{% url 'about' %}">Sobre nosotros</a></li>
+  <li><a href="{% url 'rescatados' %}">Rescatados</a></li>
+  <li class="active"><a href="{% url 'services' %}">Servicios</a></li>
+  <li><a href="{% url 'blog' %}">Blog</a></li>
+  <li><a href="{% url 'visit' %}">Visítanos</a></li>
+  <li><a href="{% url 'contact' %}">Contáctanos</a></li>
+{% endblock %}
 
-    {% block imagen_contenido %}
+{% block imagen_contenido %}
 
-    <li style="background-image: url('{% static 'core/img/dogcat.jpg' %}');">
-    {% endblock %}
+  <li style="background-image: url('{% static 'core/img/dogcat.jpg' %}');">
+{% endblock %}
 
-    {% block texto1 %}
-    <h1 class="probootstrap-heading probootstrap-animate mb20">Conoce los servicios de nuestra tienda.</h1>
-    {% endblock %}
+{% block texto1 %}
+  <h1 class="probootstrap-heading probootstrap-animate mb20">Conoce los servicios de nuestra tienda.</h1>
+{% endblock %}
 
-    {% block overlay %}
-    {% endblock %}
+{% block overlay %}
+{% endblock %}
 
-    {% block texto3 %}
-    {% endblock %}
+{% block texto3 %}
+{% endblock %}
 
-    {% block texto4 %}
-
-    {% for service in services  %}
+{% block texto4 %}
+  {% for service in services %}
     <section class="probootstrap-half">
           <div class="image-wrap">
             <div class="image" style="background-image: url({{service.image.url}}); "style="width: 1000px; "></div>
@@ -42,7 +41,7 @@
             <p><a href="#" class="btn btn-ghost btn-ghost-white mb10">Agenda una cita </a></p>
           </div>
         </section>
-      </div>
-
   {% endfor %}
+      </div>
+      
 {% endblock %}
